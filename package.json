@@ -26,12 +26,15 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
+      "plugin:vue/recommended",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+		"indent": [2, "tab"]
+	},
     "parserOptions": {
-      "parser": "babel-eslint"
+		"emacVersion": 6,
+		"parser": "babel-eslint"
     }
   },
   "postcss": {
