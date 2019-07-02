@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <message-component />
     <components-within />
     <components />
     <computed-properties :tasks="tasks" />
@@ -14,6 +15,7 @@ import AttributeClassBinding from './components/AttributeClassBinding.vue'
 import ComputedProperties from './components/ComputedProperties.vue'
 import Components from './components/Components.vue'
 import ComponentsWithin from './components/ComponentsWithinComponents.vue'
+import MessageComponent from './components/MessageComponent.vue'
 
 export default {
 	name: 'App',
@@ -22,7 +24,8 @@ export default {
 		AttributeClassBinding,
 		ComputedProperties,
 		Components,
-		ComponentsWithin
+		ComponentsWithin,
+		MessageComponent
 	},
 	data() {
 		return {
