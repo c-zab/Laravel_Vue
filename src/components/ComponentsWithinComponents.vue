@@ -1,16 +1,19 @@
 <template>
-  <div>
-    <h1>E8 Components Within Components</h1>
-    <ul>
-      <task
-        v-for="task in tasks"
-        :key="task.task"
-      >
-        {{ task.task }}
-      </task>
-    </ul>
-    <div id="break">
-      break
+  <div class="section">
+    <div class="container">
+      <h1 class="title">
+        E8 Components Within Components
+      </h1>
+      <div class="content">
+        <ol class="1">
+          <task
+            v-for="task in tasks"
+            :key="task.task"
+          >
+            {{ task.task }}
+          </task>
+        </ol>
+      </div>
     </div>
   </div>
 </template>

@@ -1,38 +1,57 @@
 <template>
-  <div>
-    <h1>E6 The need for Computed Properties</h1>
-    <h2>All tasks</h2>
-    <ul>
-      <li
-        v-for="task in tasks"
-        :key="task.id"
-      >
-        <input
-          id="checkbox"
-          v-model="task.completed"
-          type="checkbox"
-        >
-        <label for="checkbox"> {{ task.description }}</label>
-      </li>
-    </ul>
-    <h3>Completed Tasks</h3>
-    <ul>
-      <li
-        v-for="task in completedTasks"
-        :key="task.id"
-        v-text="task.description"
-      />
-    </ul>
-    <h4>Incompleted Tasks</h4>
-    <ul>
-      <li
-        v-for="task in incompletedTasks"
-        :key="task.id"
-        v-text="task.description"
-      />
-    </ul>
-    <div id="break">
-      break
+  <div class="section">
+    <div class="container">
+      <h1 class="title">
+        E6 The need for Computed Properties
+      </h1>
+      <h2 class="subtitle">
+        All tasks
+      </h2>
+
+      <div class="content">
+        <ul>
+          <li
+            v-for="task in tasks"
+            :key="task.id"
+          >
+            <label
+              class="checkbox"
+              for="checkbox"
+            >
+              <input
+                id="checkbox"
+                v-model="task.completed"
+                type="checkbox"
+              >
+              {{ task.description }}
+            </label>
+          </li>
+        </ul>
+      </div>
+      <h2 class="subtitle">
+        Completed Tasks
+      </h2>
+      <div class="content">
+        <ul>
+          <li
+            v-for="task in completedTasks"
+            :key="task.id"
+            v-text="task.description"
+          />
+        </ul>
+      </div>
+      <h2 class="subtitle">
+        Incompleted Tasks
+      </h2>
+      <div class="content">
+        <ul>
+          <li
+            v-for="task in incompletedTasks"
+            :key="task.id"
+            v-text="task.description"
+          />
+        </ul>
+      </div>
     </div>
   </div>
 </template>

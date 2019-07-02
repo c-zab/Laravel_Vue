@@ -1,24 +1,30 @@
 <template>
-  <div>
-    <h1>E5 Attribute and Class Binding</h1>
-    <button :title="title">
-      Hover over me!
-    </button>
-    <button
-      :class="{'is-loading': isLoading}"
-      @click="ToggleClass"
-    >
-      Toggle me!
-    </button>
-    <button
-      :disabled="disabled"
-      @click="DisabledClass"
-    >
-      Disabled me!
-    </button>
-    <button id="break">
-      break
-    </button>
+  <div class="section">
+    <div class="container">
+      <h1 class="title">
+        E5 Attribute and Class Binding
+      </h1>
+      <button
+        class="button"
+        :title="title"
+      >
+        Hover over me!
+      </button>
+      <button
+        class="button"
+        :class="{'is-success': isLoading}"
+        @click="ToggleClass"
+      >
+        Toggle me!
+      </button>
+      <button
+        class="button"
+        :disabled="disabled"
+        @click="DisabledClass"
+      >
+        Disabled me!
+      </button>
+    </div>
   </div>
 </template>
 
