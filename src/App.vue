@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <ComputedProperties :tasks="tasks" />
-    <AttributeClassBinding />
-    <EventListener />
+    <components />
+    <computed-properties :tasks="tasks" />
+    <attribute-class-binding />
+    <event-listener />
   </div>
 </template>
 
@@ -10,17 +11,18 @@
 import EventListener from './components/EventListener.vue'
 import AttributeClassBinding from './components/AttributeClassBinding.vue'
 import ComputedProperties from './components/ComputedProperties.vue'
+import Components from './components/Components.vue'
 
 export default {
 	name: 'App',
 	components: {
 		EventListener,
 		AttributeClassBinding,
-		ComputedProperties
+		ComputedProperties,
+		Components
 	},
 	data() {
 		return {
-
 			tasks:[
 				{id: 1, description: "go to the mall", completed: true},
 				{id: 2, description: "go to movies", completed: true},
