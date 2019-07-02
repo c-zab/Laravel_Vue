@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <components-within />
     <components />
     <computed-properties :tasks="tasks" />
     <attribute-class-binding />
@@ -12,6 +13,7 @@ import EventListener from './components/EventListener.vue'
 import AttributeClassBinding from './components/AttributeClassBinding.vue'
 import ComputedProperties from './components/ComputedProperties.vue'
 import Components from './components/Components.vue'
+import ComponentsWithin from './components/ComponentsWithinComponents.vue'
 
 export default {
 	name: 'App',
@@ -19,7 +21,8 @@ export default {
 		EventListener,
 		AttributeClassBinding,
 		ComputedProperties,
-		Components
+		Components,
+		ComponentsWithin
 	},
 	data() {
 		return {
