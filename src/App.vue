@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <modal-component />
     <message-component />
     <components-within />
     <components />
@@ -16,6 +17,7 @@ import ComputedProperties from './components/ComputedProperties.vue'
 import Components from './components/Components.vue'
 import ComponentsWithin from './components/ComponentsWithinComponents.vue'
 import MessageComponent from './components/MessageComponent.vue'
+import ModalComponent from './components/ModalComponent.vue'
 
 export default {
 	name: 'App',
@@ -25,7 +27,8 @@ export default {
 		ComputedProperties,
 		Components,
 		ComponentsWithin,
-		MessageComponent
+		MessageComponent,
+		ModalComponent,
 	},
 	data() {
 		return {
