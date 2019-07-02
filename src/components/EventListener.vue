@@ -1,34 +1,18 @@
 <template>
   <div>
     <h1>E4 Event Listener</h1>
-    <h2>All tasks</h2>
+    <input
+      v-model="newName"
+      type="text"
+    >
+    <button @click="AddName">
+      Add name
+    </button>
     <ul>
       <li
-        v-for="task in tasks"
-        :key="task.id"
-      >
-        <input
-          id="checkbox"
-          v-model="task.completed"
-          type="checkbox"
-        >
-        <label for="checkbox"> {{ task.description }}</label>
-      </li>
-    </ul>
-    <h3>Completed Tasks</h3>
-    <ul>
-      <li
-        v-for="task in completedTasks"
-        :key="task.id"
-        v-text="task.description"
-      />
-    </ul>
-    <h4>Incompleted Tasks</h4>
-    <ul>
-      <li
-        v-for="task in incompletedTasks"
-        :key="task.id"
-        v-text="task.description"
+        v-for="name in names"
+        :key="name"
+        v-text="name"
       />
     </ul>
     <div id="break">
@@ -40,24 +24,18 @@
 <script>
 export default {
 	name: 'EventListener',
-	props:{
-		tasks: {
-			type: Array,
-			required: true
+	data(){
+		return {
+			newName: '',
+			names: ['Carlos', 'Joe', 'Thiago', 'Martin']
 		}
 	},
-	data:function() {
-		return {
-
-		};
-	},
-	computed: {
-		completedTasks(){
-			return this.tasks.filter(task=> task.completed);
-		},
-		incompletedTasks(){
-			return this.tasks.filter(task=> ! task.completed)
+	methods:{
+		AddName(){
+			this.names.push(this.newName);
+			this.newName = ""
 		}
 	}
+
 }
 </script>

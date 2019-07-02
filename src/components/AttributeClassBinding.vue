@@ -25,7 +25,7 @@
 <script>
 export default {
 	name: "AttributeClassBinding",
-	data: function() {
+	data() {
 		return {
 			title: "I am a title",
 			isLoading: false,
