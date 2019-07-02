@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <EventListener :tasks="tasks" />
+    <AttributeClassBinding />
   </div>
 </template>
 
 <script>
 import EventListener from './components/EventListener.vue'
+import AttributeClassBinding from './components/AttributeClassBinding.vue'
 
 export default {
 	name: 'App',
 	components: {
-		EventListener
+		EventListener,
+		AttributeClassBinding
 	},
 	data: function() {
 		return {
@@ -21,7 +24,8 @@ export default {
 				{id: 4, description: "go to do laundry", completed: true},
 				{id: 5, description: "go to do gardering", completed: false},
 				{id: 6, description: "go to water the plants", completed: true}
-			]
+			],
+
 		};
 	}
 }
@@ -29,5 +33,12 @@ export default {
 </script>
 
 <style>
-
+#break {
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   background-color:#000;
+   top: 0;
+   left: 0;
+}
 </style>

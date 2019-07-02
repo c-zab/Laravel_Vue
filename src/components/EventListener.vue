@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>E4 Event Listener</h1>
     <h2>All tasks</h2>
     <ul>
       <li
@@ -30,6 +31,9 @@
         v-text="task.description"
       />
     </ul>
+    <div id="break">
+      Break
+    </div>
   </div>
 </template>
 
