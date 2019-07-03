@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <tabs-component />
     <modal-component />
     <message-component />
     <components-within />
@@ -18,6 +19,7 @@ import Components from './components/Components.vue'
 import ComponentsWithin from './components/ComponentsWithinComponents.vue'
 import MessageComponent from './components/MessageComponent.vue'
 import ModalComponent from './components/ModalComponent.vue'
+import TabsComponent from './components/TabsComponent.vue'
 
 export default {
 	name: 'App',
@@ -29,6 +31,7 @@ export default {
 		ComponentsWithin,
 		MessageComponent,
 		ModalComponent,
+		TabsComponent
 	},
 	data() {
 		return {
@@ -46,14 +49,3 @@ export default {
 }
 
 </script>
-
-<style>
-#break {
-   width: 100%;
-   margin: 0;
-   padding: 0;
-   background-color:#000;
-   top: 0;
-   left: 0;
-}
-</style>

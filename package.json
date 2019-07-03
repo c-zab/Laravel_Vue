@@ -30,7 +30,8 @@
       "eslint:recommended"
     ],
     "rules": {
-		"indent": [2, "tab"]
+		"indent": [2, "tab"],
+		"no-console": "off"
 	},
     "parserOptions": {
 		"emacVersion": 6,
