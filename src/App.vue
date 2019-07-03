@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <named-slots />
     <custom-event-dispatcher />
     <custom-event-component />
     <tabs-component />
@@ -23,6 +24,7 @@ import MessageComponent from './components/MessageComponent.vue'
 import ModalComponent from './components/ModalComponent.vue'
 import TabsComponent from './components/TabsComponent.vue'
 import CustomEventComponent from './components/CustomEventComponent.vue'
+import NamedSlots from './components/NamedSlots.vue'
 
 // For event dispatcher
 import Vue from 'vue'
@@ -41,7 +43,8 @@ export default {
 		ModalComponent,
 		TabsComponent,
 		CustomEventComponent,
-		CustomEventDispatcher
+		CustomEventDispatcher,
+		NamedSlots
 	},
 	data() {
 		return {
