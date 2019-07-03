@@ -8,7 +8,7 @@
       <div
         v-if="couponApplied"
       >
-        <p>You use a coupon!</p>
+        <p>You applied a coupon!</p>
       </div>
     </div>
   </div>

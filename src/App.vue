@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <custom-event-dispatcher />
     <custom-event-component />
     <tabs-component />
     <modal-component />
@@ -23,6 +24,11 @@ import ModalComponent from './components/ModalComponent.vue'
 import TabsComponent from './components/TabsComponent.vue'
 import CustomEventComponent from './components/CustomEventComponent.vue'
 
+// For event dispatcher
+import Vue from 'vue'
+window.Event = new Vue();
+import CustomEventDispatcher from './components/CustomEventDispatcher.vue'
+
 export default {
 	name: 'App',
 	components: {
@@ -34,7 +40,8 @@ export default {
 		MessageComponent,
 		ModalComponent,
 		TabsComponent,
-		CustomEventComponent
+		CustomEventComponent,
+		CustomEventDispatcher
 	},
 	data() {
 		return {
