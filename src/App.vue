@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <custom-event-component />
     <tabs-component />
     <modal-component />
     <message-component />
@@ -20,6 +21,7 @@ import ComponentsWithin from './components/ComponentsWithinComponents.vue'
 import MessageComponent from './components/MessageComponent.vue'
 import ModalComponent from './components/ModalComponent.vue'
 import TabsComponent from './components/TabsComponent.vue'
+import CustomEventComponent from './components/CustomEventComponent.vue'
 
 export default {
 	name: 'App',
@@ -31,7 +33,8 @@ export default {
 		ComponentsWithin,
 		MessageComponent,
 		ModalComponent,
-		TabsComponent
+		TabsComponent,
+		CustomEventComponent
 	},
 	data() {
 		return {
