@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <hot-module-replacement />
     <webpack-vue />
     <inline-template />
     <named-slots />
@@ -29,6 +30,7 @@ import CustomEventComponent from './components/CustomEventComponent.vue'
 import NamedSlots from './components/NamedSlots.vue'
 import InlineTemplate from './components/InlineTemplate.vue'
 import WebpackVue from './components/WebpackVue.vue'
+import HotModuleReplacement from './components/HotModuleReplacement.vue'
 
 // For event dispatcher
 import Vue from 'vue'
@@ -50,7 +52,8 @@ export default {
 		CustomEventDispatcher,
 		NamedSlots,
 		InlineTemplate,
-		WebpackVue
+		WebpackVue,
+		HotModuleReplacement
 	},
 	data() {
 		return {
