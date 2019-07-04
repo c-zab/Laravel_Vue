@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <webpack-vue />
     <inline-template />
     <named-slots />
     <custom-event-dispatcher />
@@ -27,6 +28,7 @@ import TabsComponent from './components/TabsComponent.vue'
 import CustomEventComponent from './components/CustomEventComponent.vue'
 import NamedSlots from './components/NamedSlots.vue'
 import InlineTemplate from './components/InlineTemplate.vue'
+import WebpackVue from './components/WebpackVue.vue'
 
 // For event dispatcher
 import Vue from 'vue'
@@ -47,7 +49,8 @@ export default {
 		CustomEventComponent,
 		CustomEventDispatcher,
 		NamedSlots,
-		InlineTemplate
+		InlineTemplate,
+		WebpackVue
 	},
 	data() {
 		return {
