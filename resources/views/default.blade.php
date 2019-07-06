@@ -11,9 +11,12 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     </head>
     <body>
-        <div id="app">
-			<app-vue></app-vue>
+		<div id="app">
+
+			@yield('content')
+
 		</div>
+
 		<script src="/js/app.js"></script>
     </body>
 </html>

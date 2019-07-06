@@ -1,9 +1,13 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 });
 
-Route::get('skills', function(){
-	return ['Laravel', 'PHP', 'Java', 'Python'];
+Route::get('skills', function () {
+    return ['Laravel', 'PHP', 'Java', 'Python'];
 });
+
+Route::get('/formE19', 'FormE19Controller@index');
+
+Route::post('/formE19', 'FormE19Controller@storage');
