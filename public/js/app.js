@@ -3129,7 +3129,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.is-loading {\n\tbackground: teal;\n}\n", ""]);
+exports.push([module.i, "\n.is-loading {\r\n\tbackground: teal;\n}\r\n", ""]);
 
 // exports
 
@@ -17746,7 +17746,35 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 Vue.component('app-vue', __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue")["default"]);
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: function data() {
+    return {
+      name: '',
+      description: '',
+      errors: {}
+    };
+  },
+  methods: {
+    onSubmit: function onSubmit() {
+      var _this = this;
+
+      axios.post('/formE19', {
+        name: this.name,
+        description: this.description
+      }).then(this.onSuccess)["catch"](function (error) {
+        _this.errors = error.response.data.errors, _this.num = Object.keys(error.response.data.errors).length;
+      });
+    },
+    getErrors: function getErrors(field) {
+      return "".concat(field);
+    },
+    clearInput: function clearInput(field) {
+      delete this.errors[field];
+    },
+    onSuccess: function onSuccess(response) {
+      alert(response.data.message), this.name = '', this.description = '';
+    }
+  }
 });
 
 /***/ }),

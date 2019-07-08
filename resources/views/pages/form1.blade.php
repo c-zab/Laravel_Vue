@@ -5,27 +5,25 @@
 <div class="section">
 	<div class="container">
 		<h1 class="title">E19 Object-Oriented Forms: Part 1</h1>
-		<div class="list is-hoverable">
-			<p class="list-item">
-				Featureds
-			</p>
-		</div>
 
-		<form method="POST" action="/formE19">
+		@include('includes.listFormE19')
+
+		<form method="POST" action="/formE19" @submit.prevent="onSubmit" @keydown='clearInput($event.target.name)'>
 			@csrf
 			<div class="field">
 				<label class="label">Project Name</label>
 				<div class="control">
-					<input class="input" name="name" type="text" value="Nice title">
+					<input class="input" name="name" type="text" v-model='name'>
+				<span v-if="errors.name" class="help is-danger" v-text="getErrors(errors.name)"></span>
 				</div>
 			</div>
 
 			<div class="field">
 				<label class="label">Description</label>
 				<div class="control">
-					<input class="input" type="text" name="description" value="Here a description">
+					<input class="input"  type="text" name="description" v-model='description'>
 				</div>
-				<p class="help is-success">There is a description</p>
+				<span v-if="errors.description" v-text="getErrors(errors.description)" class="help is-danger">The description field is required</span>
 			</div>
 
 			<div class="field is-grouped">

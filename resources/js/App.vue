@@ -67,8 +67,7 @@ export default {
 				{id: 4, description: "go to do laundry", completed: true},
 				{id: 5, description: "go to do gardering", completed: false},
 				{id: 6, description: "go to water the plants", completed: true}
-			],
-
+			]
 		};
 	}
 }
