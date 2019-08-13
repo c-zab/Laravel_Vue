@@ -32,7 +32,7 @@ export default {
 	},
 	methods:{
 		AddName(){
-			this.names.push(this.newName);
+			if(this.newName !== '') this.names.push(this.newName);
 			this.newName = ""
 		}
 	}
