@@ -3,15 +3,15 @@
     <h2>All tasks</h2>
     <ul>
       <li
-        v-for="task in tasks"
-        :key="task.id"
+        v-for="(task, index) in tasks"
+        :key="index"
       >
         <input
-          id="checkbox"
+          :id="index"
           v-model="task.completed"
           type="checkbox"
         >
-        <label for="checkbox"> {{ task.description }}</label>
+        <label :for="index">{{ task.description }}</label>
       </li>
     </ul>
     <h3>Completed Tasks</h3>
@@ -35,25 +35,20 @@
 
 <script>
 export default {
-	name: 'EventListener',
-	props:{
+	name: "EventListener",
+	props: {
 		tasks: {
 			type: Array,
 			required: true
 		}
 	},
-	data:function() {
-		return {
-
-		};
-	},
 	computed: {
-		completedTasks(){
-			return this.tasks.filter(task=> task.completed);
+		completedTasks() {
+			return this.tasks.filter(task => task.completed);
 		},
-		incompletedTasks(){
-			return this.tasks.filter(task=> ! task.completed)
+		incompletedTasks() {
+			return this.tasks.filter(task => !task.completed);
 		}
 	}
-}
+};
 </script>
