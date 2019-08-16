@@ -30,12 +30,12 @@ export default {
 	data() {
 		return {
 			tasks:[
-				{id: 1, description: "go to the mall", completed: true},
-				{id: 2, description: "go to movies", completed: true},
-				{id: 3, description: "go to do groceries", completed: false},
-				{id: 4, description: "go to do laundry", completed: true},
-				{id: 5, description: "go to do gardering", completed: false},
-				{id: 6, description: "go to water the plants", completed: true}
+				{description: "go to the mall", completed: true},
+				{description: "go to movies", completed: true},
+				{description: "go to do groceries", completed: false},
+				{description: "go to do laundry", completed: true},
+				{description: "go to do gardering", completed: false},
+				{description: "go to water the plants", completed: true}
 			],
 
 		};

@@ -11,8 +11,8 @@
       <div class="content">
         <ul>
           <li
-            v-for="task in tasks"
-            :key="task.id"
+            v-for="(task, index) in tasks"
+            :key="index"
           >
             <label
               class="checkbox"
@@ -34,8 +34,8 @@
       <div class="content">
         <ul>
           <li
-            v-for="task in completedTasks"
-            :key="task.id"
+            v-for="(task, index) in completedTasks"
+            :key="index"
             v-text="task.description"
           />
         </ul>
@@ -46,8 +46,8 @@
       <div class="content">
         <ul>
           <li
-            v-for="task in incompletedTasks"
-            :key="task.id"
+            v-for="(task, index) in incompletedTasks"
+            :key="index"
             v-text="task.description"
           />
         </ul>
@@ -71,12 +71,13 @@ export default {
 		};
 	},
 	computed: {
-		completedTasks(){
-			return this.tasks.filter(task=> task.completed);
-		},
-		incompletedTasks(){
-			return this.tasks.filter(task=> ! task.completed)
-		}
+		completedTasks: (vm) => vm.tasks.filter(task=> task.completed),
+
+		incompletedTasks: (vm) => vm.tasks.filter(task=> ! task.completed)
+
+		// incompletedTasks(){
+		// 	return this.tasks.filter(task=> ! task.completed)
+		// }
 	}
 }
 </script>
