@@ -4,30 +4,30 @@
     <h2>All tasks</h2>
     <ul>
       <li
-        v-for="task in tasks"
-        :key="task.id"
+        v-for="(task, index) in tasks"
+        :key="index"
       >
         <input
-          id="checkbox"
+          :id="index"
           v-model="task.completed"
           type="checkbox"
         >
-        <label for="checkbox"> {{ task.description }}</label>
+        <label :for="index"> {{ task.description }}</label>
       </li>
     </ul>
     <h3>Completed Tasks</h3>
     <ul>
       <li
-        v-for="task in completedTasks"
-        :key="task.id"
+        v-for="(task, index) in completedTasks"
+        :key="index"
         v-text="task.description"
       />
     </ul>
     <h4>Incompleted Tasks</h4>
     <ul>
       <li
-        v-for="task in incompletedTasks"
-        :key="task.id"
+        v-for="(task, index) in incompletedTasks"
+        :key="index"
         v-text="task.description"
       />
     </ul>
@@ -52,12 +52,13 @@ export default {
 		};
 	},
 	computed: {
-		completedTasks(){
-			return this.tasks.filter(task=> task.completed);
-		},
-		incompletedTasks(){
-			return this.tasks.filter(task=> ! task.completed)
-		}
+		completedTasks: (vm) => vm.tasks.filter(task=> task.completed),
+
+		incompletedTasks: (vm) => vm.tasks.filter(task=> ! task.completed)
+
+		// incompletedTasks(){
+		// 	return this.tasks.filter(task=> ! task.completed)
+		// }
 	}
 }
 </script>

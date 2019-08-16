@@ -10,8 +10,8 @@
     </button>
     <ul>
       <li
-        v-for="name in names"
-        :key="name"
+        v-for="(name, index) in names"
+        :key="index"
         v-text="name"
       />
     </ul>
@@ -32,7 +32,7 @@ export default {
 	},
 	methods:{
 		AddName(){
-			this.names.push(this.newName);
+			if(this.newName !== '') this.names.push(this.newName);
 			this.newName = ""
 		}
 	}
