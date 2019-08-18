@@ -8,7 +8,7 @@
       <button
         class="delete"
         aria-label="delete"
-        @click="CloseMessage"
+        @click="isVisible = false"
       />
     </div>
     <div class="message-body">
@@ -41,7 +41,3 @@ export default {
 	}
 }
 </script>
-
-<style>
-
-</style>

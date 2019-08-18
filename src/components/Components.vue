@@ -5,9 +5,13 @@
         E7 Components 101
       </h1>
 
-      <task>Clean room</task>
-      <task>Clean bathroom</task>
-      <task>Clear cache</task>
+      <div class="content">
+        <ul>
+          <task>Clean room</task>
+          <task>Clean bathroom</task>
+          <task>Clear cache</task>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
