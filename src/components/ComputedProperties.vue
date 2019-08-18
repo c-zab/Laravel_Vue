@@ -16,10 +16,10 @@
           >
             <label
               class="checkbox"
-              for="checkbox"
+              :for="index"
             >
               <input
-                id="checkbox"
+                :id="index"
                 v-model="task.completed"
                 type="checkbox"
               >

@@ -43,14 +43,3 @@ export default {
 }
 
 </script>
-
-<style>
-#break {
-   width: 100%;
-   margin: 0;
-   padding: 0;
-   background-color:#000;
-   top: 0;
-   left: 0;
-}
-</style>
