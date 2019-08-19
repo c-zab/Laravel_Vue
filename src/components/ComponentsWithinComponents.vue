@@ -7,10 +7,10 @@
       <div class="content">
         <ol class="1">
           <task
-            v-for="task in tasks"
-            :key="task.task"
+            v-for="(task, index) in tasks"
+            :key="index"
           >
-            {{ task.task }}
+            {{ task.chore }}
           </task>
         </ol>
       </div>
@@ -30,10 +30,10 @@ export default {
 	data() {
 		return {
 			tasks: [
-				{ task: "Go to the Store", completed: true },
-				{ task: "Go to the bank", completed: true },
-				{ task: "Go to the farm", completed: false },
-				{ task: "Go to the beach", completed: true },
+				{ chore: "Go to the Store", completed: true },
+				{ chore: "Go to the bank", completed: true },
+				{ chore: "Go to the farm", completed: false },
+				{ chore: "Go to the beach", completed: true },
 			]
 		}
 	}
