@@ -25,8 +25,8 @@
       <div class="content">
         <ol type="1">
           <li
-            v-for="name in names"
-            :key="name"
+            v-for="(name, index) in names"
+            :key="index"
             v-text="name"
           />
         </ol>
@@ -46,10 +46,8 @@ export default {
 	},
 	methods:{
 		AddName(){
-			if (this.newName !== "") {
-				this.names.push(this.newName);
-				this.newName = ""
-			}
+			if(this.newName !== '') this.names.push(this.newName);
+			this.newName = ""
 		}
 	}
 

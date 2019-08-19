@@ -30,12 +30,16 @@
       "eslint:recommended"
     ],
     "rules": {
-		"indent": [2, "tab"],
-		"no-console": "off"
-	},
+      "indent": [
+        2,
+        "tab"
+      ],
+      "quotes": "off",
+      "no-console": "off"
+    },
     "parserOptions": {
-		"emacVersion": 6,
-		"parser": "babel-eslint"
+      "emacVersion": 6,
+      "parser": "babel-eslint"
     }
   },
   "postcss": {
