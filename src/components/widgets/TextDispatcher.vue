@@ -7,7 +7,7 @@
     <span
       v-if="wasApplied"
       class="tag is-success"
-    >Coupon Applied!</span>
+    >Coupon Applied!&nbsp;<strong>{{ coupon }}</strong></span>
   </div>
 </template>
 
@@ -15,11 +15,15 @@
 export default {
 	data(){
 		return {
-			wasApplied: false
+			wasApplied: false,
+			coupon: ''
 		}
 	},
 	created() {
-		Event.$on('coupon-applied', () => this.wasApplied = true);
+		Event.$on('coupon-applied', (value) => {
+			this.wasApplied = value.length > 0
+			this.coupon = value
+		});
 	},
 }
 </script>

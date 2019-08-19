@@ -3,19 +3,24 @@
     <div class="tabs">
       <ul>
         <li
-          v-for="tab in tabs"
-          :key="tab.name"
+          v-for="(tab, index) in tabs"
+          :key="index"
           :class="{'is-active': tab.isActive}"
         >
           <a
             :href="tab.href"
             @click="selectTab(tab)"
-          >{{ tab.name }}</a>
+          >{{ tab.title }}</a>
         </li>
       </ul>
     </div>
+
     <div class="tabs-details">
-      <slot />
+      <section class="hero is-primary">
+        <div class="hero-body">
+          <slot />
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -39,7 +44,7 @@ export default {
 	methods: {
 		selectTab(selectedTab){
 			this.tabs.forEach(tab => {
-				tab.isActive = (tab.name == selectedTab.name)
+				tab.isActive = (tab.title == selectedTab.title)
 			})
 		}
 	}

@@ -1,11 +1,3 @@
 <template>
-  <div>
-    <li><slot /></li>
-  </div>
+  <li><slot /></li>
 </template>
-
-<script>
-export default {
-
-}
-</script>
