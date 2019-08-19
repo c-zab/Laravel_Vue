@@ -7,19 +7,48 @@
 
       <tabs>
         <tab
-          name="About us"
+          title="About us"
           :selected="true"
         >
-          <h1>Here is the content for About us tab</h1>
+          <template slot="title">
+            <h1 class="title">
+              About us
+            </h1>
+          </template>
+          <template slot="subtitle">
+            <h2 class="subtitle">
+              Subtitle for About us
+            </h2>
+          </template>
         </tab>
-        <tab name="About our culture">
-          <h1>Here is the content for About our culture tab</h1>
+
+        <tab title="About our culture">
+          <template slot="title">
+            <h1 class="title">
+              About our culture
+            </h1>
+          </template>
         </tab>
-        <tab name="About our vision">
-          <h1>Here is the content for About our vision tab</h1>
+
+        <tab title="About our vision">
+          <template slot="title">
+            <h1 class="title">
+              About our vision
+            </h1>
+          </template>
+          <template slot="subtitle">
+            <h2 class="subtitle">
+              Subtitle for About our vision
+            </h2>
+          </template>
         </tab>
-        <tab name="About our other stuff">
-          <h1>Here is the content for our other stuff tab</h1>
+
+        <tab title="About our other stuff">
+          <template slot="title">
+            <h1 class="title">
+              About our other stuff
+            </h1>
+          </template>
         </tab>
       </tabs>
     </div>
@@ -27,17 +56,13 @@
 </template>
 
 <script>
-import tabs from './widgets/Tabs'
-import tab from './widgets/Tab'
+import tabs from "./widgets/Tabs";
+import tab from "./widgets/Tab";
 
 export default {
 	components: {
 		tabs,
 		tab
 	}
-}
+};
 </script>
-
-<style>
-
-</style>
