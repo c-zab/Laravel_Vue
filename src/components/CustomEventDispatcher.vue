@@ -5,10 +5,10 @@
       <h1 class="title">
         E13 Component Communication Example #2: Event Dispatcher
       </h1>
-      <div class="columns">
-        <div class="column">
+      <div class="columns is-mobile">
+        <div class="column is-one-third">
           <coupon-dispatcher
-            placeholder="placeholder"
+            :placeholder="placeholder"
           />
         </div>
         <div class="column">

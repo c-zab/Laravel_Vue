@@ -3,7 +3,10 @@
     class="modal"
     :class="{'is-active' : isVisible}"
   >
-    <div class="modal-background" />
+    <div
+      class="modal-background"
+      @click="$emit('closeModal')"
+    />
     <div class="modal-content">
       <div class="box">
         <slot />
@@ -12,7 +15,7 @@
     <button
       class="modal-close is-large"
       aria-label="close"
-      @click="$emit('close')"
+      @click="$emit('closeModal')"
     />
   </div>
 </template>
@@ -29,7 +32,3 @@ export default {
 
 }
 </script>
-
-<style>
-
-</style>
