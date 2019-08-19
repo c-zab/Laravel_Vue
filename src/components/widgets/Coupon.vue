@@ -20,8 +20,8 @@ export default {
 		}
 	},
 	methods: {
-		onCouponApplied(name){
-			this.value.length > 0 ? this.$emit('coupon-applied', name) : this.$emit('coupon-removed')
+		onCouponApplied(value){
+			this.$emit('coupon-applied', value)
 		}
 	}
 }

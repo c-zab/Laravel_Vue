@@ -6,7 +6,6 @@
       </h1>
       <coupon
         @coupon-applied="onCouponApplied"
-        @coupon-removed="couponApplied = false"
       />
       <div
         v-if="couponApplied"
@@ -32,8 +31,8 @@ export default {
 	},
 	methods:{
 		onCouponApplied(name){
+			this.couponApplied = name.length > 0
 			this.coupon = name
-			this.couponApplied = true
 		}
 	}
 }
