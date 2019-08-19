@@ -6,13 +6,13 @@
       </h1>
       <button
         class="button is-primary"
-        @click="showModal"
+        @click="isVisible = true"
       >
         Show Modal
       </button>
       <modal
         v-if="isVisible"
-        @close-modal="closeModal"
+        @close-modal="isVisible = false"
       >
         <template slot="title">
           Here my title
@@ -37,6 +37,7 @@
 
 <script>
 import Modal from './widgets/ModalSlots'
+
 export default {
 	components: {
 		Modal
@@ -45,19 +46,6 @@ export default {
 		return {
 			isVisible: false
 		}
-	},
-	methods: {
-		showModal(){
-			this.isVisible = true
-		},
-		closeModal() {
-			this.isVisible = false
-		}
 	}
-
 }
 </script>
-
-<style>
-
-</style>

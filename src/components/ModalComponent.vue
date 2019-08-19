@@ -6,13 +6,13 @@
       </h1>
       <button
         class="button"
-        @click="showModal"
+        @click="isVisible = true"
       >
         Show Modal
       </button>
       <modal
         :is-visible="isVisible"
-        @close="isVisible = false"
+        @closeModal="isVisible = false"
       >
         <h1 class="title">
           Nice title
@@ -33,11 +33,6 @@ export default {
 	data(){
 		return {
 			isVisible: false
-		}
-	},
-	methods:{
-		showModal(){
-			this.isVisible = true
 		}
 	}
 }
