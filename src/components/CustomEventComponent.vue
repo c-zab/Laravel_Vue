@@ -4,11 +4,14 @@
       <h1 class="title">
         E12 Component Communication Example #1: Custom Events
       </h1>
-      <coupon @coupon-applied="onCouponApplied" />
+      <coupon
+        @coupon-applied="onCouponApplied"
+        @coupon-removed="couponApplied = false"
+      />
       <div
         v-if="couponApplied"
       >
-        <p>You applied a coupon!</p>
+        <p>You applied <strong>{{ coupon }}</strong> coupon!</p>
       </div>
     </div>
   </div>
@@ -16,23 +19,22 @@
 
 <script>
 import coupon from "./widgets/Coupon";
+
 export default {
 	components: {
 		coupon
 	},
 	data(){
 		return {
-			couponApplied: false
+			couponApplied: false,
+			coupon: ''
 		}
 	},
-	methods: {
-		onCouponApplied(){
+	methods:{
+		onCouponApplied(name){
+			this.coupon = name
 			this.couponApplied = true
 		}
 	}
 }
 </script>
-
-<style>
-
-</style>
