@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <ajax-axios />
     <hot-module-replacement />
     <webpack-vue />
     <inline-template />
@@ -31,6 +32,7 @@ import NamedSlots from './components/NamedSlots.vue'
 import InlineTemplate from './components/InlineTemplate.vue'
 import WebpackVue from './components/WebpackVue.vue'
 import HotModuleReplacement from './components/HotModuleReplacement.vue'
+import AjaxAxios from './components/AjaxRequestWithAxios.vue'
 
 // For event dispatcher
 import Vue from 'vue'
@@ -53,7 +55,8 @@ export default {
 		NamedSlots,
 		InlineTemplate,
 		WebpackVue,
-		HotModuleReplacement
+		HotModuleReplacement,
+		AjaxAxios
 	},
 	data() {
 		return {
