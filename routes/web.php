@@ -5,5 +5,5 @@ Route::get('/', function () {
 });
 
 Route::get('skills', function(){
-	return ['Laravel', 'PHP', 'Java', 'Python'];
+	return ['Laravel', 'PHP', 'Java', 'Python', 'C#'];
 });

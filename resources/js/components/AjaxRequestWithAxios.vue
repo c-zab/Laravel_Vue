@@ -6,14 +6,14 @@
       </h1>
       <article class="message is-info">
         <div class="message-body">
-          Listenning from <strong>component.</strong>
+          Http request to <strong>/skills</strong> to get the array of programming languages.
         </div>
       </article>
       <div class="content">
         <ol type="a">
           <li
-            v-for="skill in skills"
-            :key="skill"
+            v-for="(skill, index) in skills"
+            :key="index"
           >
             {{ skill }}
           </li>
@@ -33,10 +33,11 @@ export default {
 		}
 	},
 	created() {
-		axios.get('/skills').then(response =>
-			(console.log(response.data),
-			this.skills = response.data)
-		);
+		axios.get('/skills')
+			.then(response => {
+				console.log(response.data),
+				this.skills = response.data
+			});
 	}
 }
 </script>

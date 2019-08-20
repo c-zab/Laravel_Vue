@@ -4,3 +4,5 @@
 // Variables
 @import 'variables';
 
+// [v-cloak] > * { display:none }
+// [v-cloak]::before { content: "loading… v-cloak" }

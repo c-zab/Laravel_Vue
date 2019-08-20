@@ -1,13 +1,13 @@
 <template>
   <div>
     <span
-      v-if="!wasApplied"
-      class="tag is-danger"
-    >No Coupon!</span>
-    <span
       v-if="wasApplied"
       class="tag is-success"
     >Coupon Applied!&nbsp;<strong>{{ coupon }}</strong></span>
+    <span
+      v-else
+      class="tag is-danger"
+    >No Coupon!</span>
   </div>
 </template>
 
