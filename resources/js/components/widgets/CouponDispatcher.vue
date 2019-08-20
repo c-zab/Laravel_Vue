@@ -1,7 +1,9 @@
 <template>
   <div>
     <input
-      class="input is-primary"
+      v-model="value"
+      class="input"
+      :class="valueEntered ? 'is-primary' : 'is-danger'"
       :placeholder="placeholder"
       type="text"
       @blur="onCouponApplied"
@@ -18,11 +20,15 @@ export default {
 	},
 	data(){
 		return {
+			value: ''
 		}
+	},
+	computed:{
+		valueEntered: (vm) => vm.value.length > 0
 	},
 	methods: {
 		onCouponApplied() {
-			Event.$emit('coupon-applied');
+			Event.$emit('coupon-applied', this.value);
 		}
 	}
 }

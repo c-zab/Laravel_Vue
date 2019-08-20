@@ -2,10 +2,11 @@
   <div class="columns">
     <div class="column is-one-fifth">
       <input
+        v-model="value"
         class="input is-one-fifth"
         placeholder="Enter coupon"
         type="text"
-        @blur="onCouponApplied"
+        @blur="onCouponApplied(value)"
       >
     </div>
   </div>
@@ -13,9 +14,14 @@
 
 <script>
 export default {
+	data(){
+		return {
+			value: ''
+		}
+	},
 	methods: {
-		onCouponApplied(){
-			this.$emit('coupon-applied');
+		onCouponApplied(value){
+			this.$emit('coupon-applied', value)
 		}
 	}
 }

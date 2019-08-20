@@ -6,9 +6,11 @@
       </h1>
       <article class="message is-info">
         <div class="message-body">
-          This project is running Vue 3; therefore, it is using Webpack internally. In order to tweak the Webpack config is by providing an object to the configureWebpack option in <p class="is-family-code">
+          We have been using vue-cli for this project, so it is using Webpack internally. In order to tweak the Webpack config is by modifying the configureWebpack option in <p class="is-family-code">
             vue.config.js
-          </p>More infor in <a href="https://cli.vuejs.org/guide/webpack.html">Vue docs</a>
+          </p>
+          <strong><em>I didn't modified the default configuration in this project.</em></strong>
+          More information in <a href="https://cli.vuejs.org/guide/webpack.html">Vue docs</a>.
         </div>
       </article>
     </div>
