@@ -4,8 +4,8 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
-Route::get('skills', function () {
-    return ['Laravel', 'PHP', 'Java', 'Python'];
+Route::get('skills', function(){
+	return ['Laravel', 'PHP', 'Java', 'Python', 'C#'];
 });
 
 Route::get('/formE19', 'FormE19Controller@index');

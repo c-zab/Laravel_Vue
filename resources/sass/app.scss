@@ -1,6 +1,2 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// Variables
-@import 'variables';
-
+// [v-cloak] > * { display:none }
+// [v-cloak]::before { content: "loading… v-cloak" }

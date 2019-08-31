@@ -4,5 +4,10 @@
 
 	@include('includes.formE19')
 
-	<app-vue></app-vue>
+	<div id="app" v-cloak>
+		<app></app>
+	</div>
+	@push('scripts')
+		<script src="/js/app.js"></script>
+	@endpush
 @stop

@@ -19,7 +19,11 @@
         <slot />
       </section>
       <footer class="modal-card-foot">
-        <slot name="footer" />
+        <slot name="footer">
+          <button class="button is-warning">
+            Deafult
+          </button>
+        </slot>
       </footer>
     </footer>
   </footer>
@@ -34,7 +38,3 @@ export default {
 	}
 }
 </script>
-
-<style>
-
-</style>

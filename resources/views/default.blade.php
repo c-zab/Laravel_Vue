@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-    </head>
-    <body>
-		<div id="app">
+	<title>Laravel</title>
 
-			@yield('content')
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+	<style>
+		[v-cloak] > * { display:none }
 
-		</div>
+	</style>
+</head>
 
-		<script src="/js/app.js"></script>
-    </body>
+<body>
+
+	@yield('content')
+
+	@stack('scripts')
+</body>
+
 </html>

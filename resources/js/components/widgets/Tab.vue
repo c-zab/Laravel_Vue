@@ -1,13 +1,21 @@
 <template>
-  <div v-show="isActive">
-    <slot />
+  <div
+    v-if="isActive"
+    class="container"
+  >
+    <slot name="title" />
+    <slot name="subtitle">
+      <h2 class="subtitle">
+        Default subtitle
+      </h2>
+    </slot>
   </div>
 </template>
 
 <script>
 export default {
 	props: {
-		name: {
+		title: {
 			type: String,
 			required: true
 		},
@@ -23,7 +31,7 @@ export default {
 	},
 	computed:{
 		href() {
-			return '#'+this.name.toLowerCase().replace(/ /g,'-');
+			return '#'+this.title.toLowerCase().replace(/ /g,'-');
 		}
 	},
 	mounted(){
@@ -31,7 +39,3 @@ export default {
 	},
 }
 </script>
-
-<style>
-
-</style>
