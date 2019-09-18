@@ -1,2 +1,4 @@
-// [v-cloak] > * { display:none }
+[v-cloak] > * { display:none }
 // [v-cloak]::before { content: "loading… v-cloak" }
+
+@import '~bulma/bulma.sass'

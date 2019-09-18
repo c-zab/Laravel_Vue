@@ -3145,7 +3145,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.is-loading {\n\tbackground: teal;\n}\n", ""]);
+exports.push([module.i, "\n.is-loading {\r\n\tbackground: teal;\n}\r\n", ""]);
 
 // exports
 
@@ -17913,8 +17913,6 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable no-unused-vars */
-
-/* eslint-disable no-undef */
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 window.Event = new Vue();
 Vue.component('app', __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue")["default"]);
@@ -19634,8 +19632,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /mnt/d/Sites-D/laracast-vue/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /mnt/d/Sites-D/laracast-vue/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\zabal\dev\Laracast-Vue\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\zabal\dev\Laracast-Vue\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

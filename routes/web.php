@@ -11,3 +11,5 @@ Route::get('skills', function(){
 Route::get('/formE19', 'FormE19Controller@index');
 
 Route::post('/formE19', 'FormE19Controller@storage');
+
+Route::get('/project-list', 'FormE19Controller@getProjects');

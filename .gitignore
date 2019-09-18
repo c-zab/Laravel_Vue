@@ -111,7 +111,7 @@ typings/
 .dynamodb/
 
 ### Vue ###
-# gitignore template for Vue.js projects
+# gitignore tgemplate for Vue.js projects
 #
 # Recommended template: Node.gitignore
 
@@ -127,7 +127,7 @@ test/
 dist/
 
 ### VisualStudioCode ###
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json

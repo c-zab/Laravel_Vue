@@ -11,12 +11,22 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-	name: 'FormOne',
-	data() {
-		return {
-			names: ['Karla', 'Carlos', 'Richard']
-		}
-	}
-}
+  name: 'FormOne',
+
+  created() {
+    axios.get('/project-list')
+      .then(res => {
+        this.names = res.data;
+      });
+  },
+
+  data() {
+    return {
+      names: [],
+    };
+  },
+};
 </script>

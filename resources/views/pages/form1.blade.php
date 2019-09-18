@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<div id='form' class="section">
+	<div id='form' class="section" v-cloak>
 		<div class="container">
 			<h1 class="title">E19 Object-Oriented Forms: Part 1</h1>
 
