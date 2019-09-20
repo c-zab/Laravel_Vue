@@ -30,8 +30,6 @@ class FormE19Controller extends Controller
       'description' => request('description')
     ]);
 
-		// $post = new FormE19();
-		// $post-> name
 		return ['message' => 'Project created'];
 	}
 }

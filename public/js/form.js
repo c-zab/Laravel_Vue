@@ -14579,20 +14579,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('list-name-project', __webpack_require__(/*! ./components/form/ListNameProject.vue */ "./resources/js/components/form/ListNameProject.vue")["default"]);
+
+var Errors =
+/*#__PURE__*/
+function () {
+  function Errors() {
+    _classCallCheck(this, Errors);
+
+    this.errors = {};
+  }
+
+  _createClass(Errors, [{
+    key: "get",
+    value: function get(field) {
+      if (this.errors[field]) {
+        return this.errors[field][0];
+      }
+    }
+  }, {
+    key: "record",
+    value: function record(errors) {
+      this.errors = errors;
+    }
+  }, {
+    key: "clear",
+    value: function clear(field) {
+      delete this.errors[field];
+    }
+  }, {
+    key: "has",
+    value: function has(field) {
+      return this.errors.hasOwnProperty(field);
+    }
+  }, {
+    key: "any",
+    value: function any() {
+      return Object.keys(this.errors).length > 0;
+    }
+  }]);
+
+  return Errors;
+}();
+
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#form',
   data: function data() {
     return {
-      name: 'Here is my name',
-      description: 'Here my description'
+      name: '',
+      description: '',
+      errors: new Errors()
     };
   },
   methods: {
     onSubmit: function onSubmit() {
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/formE19', this.$data);
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/formE19', this.$data).then(this.onSuccess)["catch"](function (err) {
+        _this.errors.record(err.response.data.errors);
+      });
+    },
+    onSuccess: function onSuccess(res) {
+      alert(res.data.message);
+      this.name = '';
+      this.description = '';
     }
   }
 });

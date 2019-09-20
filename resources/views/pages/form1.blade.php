@@ -8,13 +8,14 @@
 
 			<list-name-project></list-name-project>
 
-			<form method="POST" action="/formE19" @submit.prevent='onSubmit'>
+			<form method="POST" action="/formE19" @submit.prevent='onSubmit' @keydown="errors.clear($event.target.name)">
 				@csrf
 				<div class="field">
 					<label class="label">Project Name</label>
 					<div class="control">
 						<input class="input" name="name" type="text" v-model="name">
-					</div>
+          </div>
+          <p class="help is-danger" v-if="errors.has('name')" v-text='errors.get("name")'></p>
 				</div>
 
 				<div class="field">
@@ -22,12 +23,12 @@
 					<div class="control">
 						<input class="input" type="text" name="description" v-model='description'>
 					</div>
-					<p class="help is-success">There is a description</p>
+					<p class="help is-danger" v-if="errors.has('description')" v-text='errors.get("description")'></p>
 				</div>
 
 				<div class="field is-grouped">
 					<div class="control">
-						<button class="button is-link" name='submit'>Submit</button>
+						<button class="button is-link" name='submit' :disabled='errors.any()'>Submit</button>
 					</div>
 					<div class="control">
 						<a class="button is-danger" name='return' href="/" >Return</a>
