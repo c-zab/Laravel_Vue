@@ -6,7 +6,7 @@
 		<div class="container">
 			<h1 class="title">E19 Object-Oriented Forms: Part 1</h1>
 
-			<list-name-project></list-name-project>
+			<list-name-project :projects='projects' v-if='projects.length > 0'></list-name-project>
 
 			<form method="POST" action="/formE19" @submit.prevent='onSubmit' @keydown="errors.clear($event.target.name)">
 				@csrf

@@ -35,10 +35,17 @@ new Vue({
   el: '#form',
   data() {
     return {
+      projects: [],
       name: '',
       description: '',
       errors: new Errors,
     };
+  },
+  created() {
+    axios.get('/project-list')
+      .then(res => {
+        this.projects = res.data;
+      });
   },
   methods: {
     onSubmit() {

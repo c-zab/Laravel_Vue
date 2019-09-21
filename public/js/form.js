@@ -1838,8 +1838,6 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1852,20 +1850,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'FormOne',
-  created: function created() {
-    var _this = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/project-list').then(function (res) {
-      _this.names = res.data;
-    });
-  },
-  data: function data() {
-    return {
-      names: []
-    };
+  props: {
+    projects: {
+      type: Array,
+      required: true
+    }
   }
 });
 
@@ -2379,7 +2370,7 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "list is-hoverable" },
-    _vm._l(_vm.names, function(name, index) {
+    _vm._l(_vm.projects, function(name, index) {
       return _c("a", { key: index, staticClass: "list-item" }, [
         _vm._v("\n    " + _vm._s(name) + "\n  ")
       ])
@@ -14634,17 +14625,25 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#form',
   data: function data() {
     return {
+      projects: [],
       name: '',
       description: '',
       errors: new Errors()
     };
   },
+  created: function created() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/project-list').then(function (res) {
+      _this.projects = res.data;
+    });
+  },
   methods: {
     onSubmit: function onSubmit() {
-      var _this = this;
+      var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/formE19', this.$data).then(this.onSuccess)["catch"](function (err) {
-        _this.errors.record(err.response.data.errors);
+        _this2.errors.record(err.response.data.errors);
       });
     },
     onSuccess: function onSuccess(res) {
