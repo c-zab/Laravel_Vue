@@ -50,30 +50,45 @@ class Form {
     for (let field in this.originalData) {
       (field !== 'isLoading') ? this[field] = '' : this.isLoading = false;
     }
+    this.errors.clear();
   }
 
   data() {
-    let data = Object.assign({}, this);
-    delete data.originalData;
-    delete data.errors;
+    let data = {};
+
+    for (let property in this.originalData) {
+      data[property] = this[property];
+    }
+
     return data;
   }
 
-  submit(requestType, url) {
-    axios[requestType](url, this.data())
-      .then(this.onSuccess.bind(this))
-      .catch(this.onFail.bind(this));
+  post(url) {
+    return this.submit('post', url);
   }
 
-  onSuccess(res) {
-    alert(res.data.message);
-    this.errors.clear();
+  submit(requestType, url) {
+    return new Promise((resolve, reject) => {
+      axios[requestType](url, this.data())
+        .then(res => {
+          this.onSuccess(res.data);
+          resolve(res.data);
+        })
+        .catch(err => {
+          this.onFail(err.response.data.errors);
+          reject(err.response.data.errors);
+        });
+    });
+  }
+
+  onSuccess(data) {
+    alert(data.message);
     this.reset();
   }
 
-  onFail(err) {
+  onFail(errors) {
     this.isLoading = false;
-    this.errors.record(err.response.data.errors);
+    this.errors.record(errors);
   }
 }
 
@@ -90,15 +105,23 @@ new Vue({
     };
   },
   created() {
-    axios.get('/project-list')
-      .then(res => {
-        this.projects = res.data;
-      });
+    this.getListProjects();
+  },
+  beforeUpdate() {
+    this.getListProjects();
   },
   methods: {
     onSubmit() {
       this.form.isLoading = true;
-      this.form.submit('post', '/formE19');
+      this.form.post('/formE19')
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+    },
+    getListProjects() {
+      axios.get('/project-list')
+        .then(res => {
+          this.projects = res.data;
+        });
     },
   },
 });

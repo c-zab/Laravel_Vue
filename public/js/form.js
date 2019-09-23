@@ -14647,32 +14647,53 @@ function () {
       for (var field in this.originalData) {
         field !== 'isLoading' ? this[field] = '' : this.isLoading = false;
       }
+
+      this.errors.clear();
     }
   }, {
     key: "data",
     value: function data() {
-      var data = Object.assign({}, this);
-      delete data.originalData;
-      delete data.errors;
+      var data = {};
+
+      for (var property in this.originalData) {
+        data[property] = this[property];
+      }
+
       return data;
+    }
+  }, {
+    key: "post",
+    value: function post(url) {
+      return this.submit('post', url);
     }
   }, {
     key: "submit",
     value: function submit(requestType, url) {
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a[requestType](url, this.data()).then(this.onSuccess.bind(this))["catch"](this.onFail.bind(this));
+      var _this = this;
+
+      return new Promise(function (resolve, reject) {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a[requestType](url, _this.data()).then(function (res) {
+          _this.onSuccess(res.data);
+
+          resolve(res.data);
+        })["catch"](function (err) {
+          _this.onFail(err.response.data.errors);
+
+          reject(err.response.data.errors);
+        });
+      });
     }
   }, {
     key: "onSuccess",
-    value: function onSuccess(res) {
-      alert(res.data.message);
-      this.errors.clear();
+    value: function onSuccess(data) {
+      alert(data.message);
       this.reset();
     }
   }, {
     key: "onFail",
-    value: function onFail(err) {
+    value: function onFail(errors) {
       this.isLoading = false;
-      this.errors.record(err.response.data.errors);
+      this.errors.record(errors);
     }
   }]);
 
@@ -14692,16 +14713,26 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     };
   },
   created: function created() {
-    var _this = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/project-list').then(function (res) {
-      _this.projects = res.data;
-    });
+    this.getListProjects();
+  },
+  beforeUpdate: function beforeUpdate() {
+    this.getListProjects();
   },
   methods: {
     onSubmit: function onSubmit() {
       this.form.isLoading = true;
-      this.form.submit('post', '/formE19');
+      this.form.post('/formE19').then(function (data) {
+        return console.log(data);
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    getListProjects: function getListProjects() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/project-list').then(function (res) {
+        _this2.projects = res.data;
+      });
     }
   }
 });
