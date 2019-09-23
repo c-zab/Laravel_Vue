@@ -14604,7 +14604,12 @@ function () {
   }, {
     key: "clear",
     value: function clear(field) {
-      delete this.errors[field];
+      if (field) {
+        delete this.errors[field];
+        return;
+      }
+
+      this.errors = {};
     }
   }, {
     key: "has",
@@ -14621,14 +14626,69 @@ function () {
   return Errors;
 }();
 
+var Form =
+/*#__PURE__*/
+function () {
+  function Form(data) {
+    _classCallCheck(this, Form);
+
+    this.originalData = data;
+
+    for (var field in data) {
+      this[field] = data[field];
+    }
+
+    this.errors = new Errors();
+  }
+
+  _createClass(Form, [{
+    key: "reset",
+    value: function reset() {
+      for (var field in this.originalData) {
+        field !== 'isLoading' ? this[field] = '' : this.isLoading = false;
+      }
+    }
+  }, {
+    key: "data",
+    value: function data() {
+      var data = Object.assign({}, this);
+      delete data.originalData;
+      delete data.errors;
+      return data;
+    }
+  }, {
+    key: "submit",
+    value: function submit(requestType, url) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a[requestType](url, this.data()).then(this.onSuccess.bind(this))["catch"](this.onFail.bind(this));
+    }
+  }, {
+    key: "onSuccess",
+    value: function onSuccess(res) {
+      alert(res.data.message);
+      this.errors.clear();
+      this.reset();
+    }
+  }, {
+    key: "onFail",
+    value: function onFail(err) {
+      this.isLoading = false;
+      this.errors.record(err.response.data.errors);
+    }
+  }]);
+
+  return Form;
+}();
+
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#form',
   data: function data() {
     return {
       projects: [],
-      name: '',
-      description: '',
-      errors: new Errors()
+      form: new Form({
+        name: '',
+        description: '',
+        isLoading: false
+      })
     };
   },
   created: function created() {
@@ -14640,16 +14700,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   },
   methods: {
     onSubmit: function onSubmit() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/formE19', this.$data).then(this.onSuccess)["catch"](function (err) {
-        _this2.errors.record(err.response.data.errors);
-      });
-    },
-    onSuccess: function onSuccess(res) {
-      alert(res.data.message);
-      this.name = '';
-      this.description = '';
+      this.form.isLoading = true;
+      this.form.submit('post', '/formE19');
     }
   }
 });

@@ -19,7 +19,11 @@ class Errors {
   }
 
   clear(field) {
-    delete this.errors[field];
+    if (field) {
+      delete this.errors[field];
+      return;
+    }
+    this.errors = {};
   }
 
   has(field) {
@@ -31,14 +35,58 @@ class Errors {
   }
 }
 
+class Form {
+  constructor(data) {
+    this.originalData = data;
+
+    for (let field in data) {
+      this[field] = data[field];
+    }
+
+    this.errors = new Errors;
+  }
+
+  reset() {
+    for (let field in this.originalData) {
+      (field !== 'isLoading') ? this[field] = '' : this.isLoading = false;
+    }
+  }
+
+  data() {
+    let data = Object.assign({}, this);
+    delete data.originalData;
+    delete data.errors;
+    return data;
+  }
+
+  submit(requestType, url) {
+    axios[requestType](url, this.data())
+      .then(this.onSuccess.bind(this))
+      .catch(this.onFail.bind(this));
+  }
+
+  onSuccess(res) {
+    alert(res.data.message);
+    this.errors.clear();
+    this.reset();
+  }
+
+  onFail(err) {
+    this.isLoading = false;
+    this.errors.record(err.response.data.errors);
+  }
+}
+
 new Vue({
   el: '#form',
   data() {
     return {
       projects: [],
-      name: '',
-      description: '',
-      errors: new Errors,
+      form: new Form({
+        name: '',
+        description: '',
+        isLoading: false,
+      }),
     };
   },
   created() {
@@ -49,16 +97,8 @@ new Vue({
   },
   methods: {
     onSubmit() {
-      axios.post('/formE19', this.$data)
-        .then(this.onSuccess)
-        .catch(err => {
-          this.errors.record(err.response.data.errors);
-        });
-    },
-    onSuccess(res) {
-      alert(res.data.message);
-      this.name = '';
-      this.description = '';
+      this.form.isLoading = true;
+      this.form.submit('post', '/formE19');
     },
   },
 });

@@ -8,27 +8,27 @@
 
 			<list-name-project :projects='projects' v-if='projects.length > 0'></list-name-project>
 
-			<form method="POST" action="/formE19" @submit.prevent='onSubmit' @keydown="errors.clear($event.target.name)">
+			<form method="POST" action="/formE19" @submit.prevent='onSubmit' @keydown="form.errors.clear($event.target.name)">
 				@csrf
 				<div class="field">
 					<label class="label">Project Name</label>
 					<div class="control">
-						<input class="input" name="name" type="text" v-model="name">
+						<input class="input" name="name" type="text" v-model="form.name">
           </div>
-          <p class="help is-danger" v-if="errors.has('name')" v-text='errors.get("name")'></p>
+          <p class="help is-danger" v-if="form.errors.has('name')" v-text='form.errors.get("name")'></p>
 				</div>
 
 				<div class="field">
 					<label class="label">Description</label>
 					<div class="control">
-						<input class="input" type="text" name="description" v-model='description'>
+						<input class="input" type="text" name="description" v-model='form.description'>
 					</div>
-					<p class="help is-danger" v-if="errors.has('description')" v-text='errors.get("description")'></p>
+					<p class="help is-danger" v-if="form.errors.has('description')" v-text='form.errors.get("description")'></p>
 				</div>
 
 				<div class="field is-grouped">
 					<div class="control">
-						<button class="button is-link" name='submit' :disabled='errors.any()'>Submit</button>
+						<button class="button is-link" :class='{"is-loading": form.isLoading}' name='submit' :disabled='form.errors.any()'>Submit</button>
 					</div>
 					<div class="control">
 						<a class="button is-danger" name='return' href="/" >Return</a>
